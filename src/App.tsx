@@ -42,8 +42,14 @@ function App() {
         <Route path="/auth/google/callback" element={<GoogleCallBack />} />
         <Route path="/*" element={<Err404 />} />
         {/* Protected Routes */}
-        <Route element={<RequireAuth allowedRole={["1996", "1995", "1999"]} />}>
+        <Route
+          element={
+            <RequireAuth allowedRole={["1996", "1995", "1999", "2001"]} />
+          }
+        >
           <Route path="/cart" element={<Cart />} />
+        </Route>
+        <Route element={<RequireAuth allowedRole={["1996", "1995", "1999"]} />}>
           <Route path="/dashboard" element={<Dashboard />}>
             <Route element={<RequireAuth allowedRole={["1995"]} />}>
               <Route path="users" element={<Users />} />

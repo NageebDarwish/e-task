@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { Axios } from "../../../Api/axios";
 import Loader from "../../../Components/Dashboard/Loader";
 import { toast } from "react-toastify";
+import NavBar from "../../../Components/Website/NavBar/NavBar";
 
 export const Cart = () => {
   const [products, setProducts] = useState<[]>([]);
@@ -169,12 +170,15 @@ export const Cart = () => {
   );
 
   return (
-    <div className="container mt-16">
-      <h1 className="my-12 text-4xl">Cart</h1>
-      <div className="grid lg:grid-cols-2 grid-cols-1 gap-10">
-        <div>{productsShow}</div>
-        {OrderSummary}
+    <>
+      <NavBar />
+      <div className="container mt-16">
+        <h1 className="my-12 text-4xl">Cart</h1>
+        <div className="grid lg:grid-cols-2 grid-cols-1 items-start gap-10">
+          <div>{productsShow}</div>
+          {OrderSummary}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
